@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projek maaf✨</title>
+  <style>
+    /* === Theme & Reset === */
+    :root{
+      --bg1:#fff6f7;      /* lembut, minta maaf */
+      --bg2:#fef6e7;      /* snack vibes */
+      --ink:#000;         /* teks hitam */
+      --accent:#ff6b81;   /* pink lembut */
+      --accent-2:#ffb84d; /* oranye snack */
+      --card:#fffffff2;   /* putih transparan */
+      --muted:#333;       /* teks sekunder */
+      --radius:24px;
+      --shadow:0 12px 36px rgba(0,0,0,.14);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #ffd1dc55 0, transparent 50%),
+        radial-gradient(1000px 500px at -10% 80%, #ffe9b355 0, transparent 50%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow:hidden;
+    }/* === Floating snack emojis === */
+.floater{position:fixed; font-size:28px; opacity:.28; filter:drop-shadow(0 4px 8px rgba(0,0,0,.12)); animation:drift var(--t) linear infinite; pointer-events:none}
+@keyframes drift{from{transform:translateY(110vh) translateX(var(--x)) rotate(0)} to{transform:translateY(-15vh) translateX(calc(var(--x) + 40px)) rotate(360deg)}}
+
+/* === Layout === */
+.wrap{position:relative; height:100%; padding:24px}
+.frame{height:100%; max-width:900px; margin:0 auto; display:grid; place-items:center}
+.card{
+  width:min(100%, 760px); min-height:420px; padding:28px 24px 86px;
+  background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+  position:relative; z-index:1; backdrop-filter:saturate(1.1) blur(6px);
+}
+
+/* Badges */
+.chip{position:absolute; top:16px; left:16px; background:linear-gradient(135deg, #fff, #ffe8ed); color:#222; border:1px solid #ffd1da; padding:8px 14px; border-radius:999px; font-weight:700; font-size:.95rem; display:inline-flex; align-items:center; gap:.5rem}
+.gift{position:absolute; right:16px; top:16px; padding:10px 12px; border-radius:12px; border:1px dashed #ffb7c7; background:#fff7f9; color:#111; font-weight:700; display:flex; align-items:center; gap:.5rem}
+.gift small{font-weight:600; opacity:.8}
+
+/* === Slides === */
+.slides{position:relative; min-height:300px}
+.slide{display:none; opacity:0; transform:translateY(8px); transition:opacity .45s ease, transform .45s ease; text-align:center; padding:18px 12px}
+.slide.active{display:grid; place-items:center; opacity:1; transform:none}
+
+.h1{font-size:clamp(1.6rem, 5vw, 2.35rem); font-weight:800; line-height:1.25; letter-spacing:.2px}
+.h1 .em{color:var(--accent)}
+.desc{color:var(--muted); margin-top:10px}
+
+/* === Footer / Controls === */
+.footer{position:absolute; inset:auto 0 14px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:0 16px}
+.controls{display:flex; align-items:center; gap:8px}
+button.nav{appearance:none; border:0; background:#111; color:#fff; padding:10px 14px; border-radius:14px; cursor:pointer; font-weight:800; box-shadow:0 8px 20px rgba(0,0,0,.25)}
+button.nav[disabled]{opacity:.5; cursor:not-allowed}
+
+.dots{display:flex; align-items:center; gap:10px}
+.dot{width:12px; height:12px; border-radius:999px; background:#e9e9e9; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.dot.active{background:linear-gradient(135deg, var(--accent), var(--accent-2))}
+
+.cta{margin-top:22px; display:inline-flex; align-items:center; gap:.6rem; padding:12px 16px; border-radius:16px; background:linear-gradient(135deg, var(--accent), #ff9a76); color:#fff; font-weight:800; letter-spacing:.3px; border:0; cursor:pointer; box-shadow:0 10px 25px rgba(255,107,129,.3)}
+
+/* Decorative ring */
+.card:before{content:""; position:absolute; inset:-2px; border-radius:inherit; padding:1.5px; background:conic-gradient(from 180deg, #ffd7e2, #fff0c4, #ffd7e2); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude}
+
+/* Responsive */
+@media (max-width:480px){.card{padding:20px 16px 90px} .gift{display:none}}
+
+  </style>
+</head>
+<body>
+  <!-- Floating snack emojis -->
+  <div class="floater" style="left:6vw; --x:-30px; --t:16s">🍪</div>
+  <div class="floater" style="left:22vw; --x:10px; --t:19s">🍫</div>
+  <div class="floater" style="left:38vw; --x:-20px; --t:14s">🍬</div>
+  <div class="floater" style="left:56vw; --x:8px; --t:18s">🧇</div>
+  <div class="floater" style="left:74vw; --x:-16px; --t:20s">🥨</div>
+  <div class="floater" style="left:88vw; --x:22px; --t:15s">🍪</div>  <div class="wrap">
+    <div class="frame">
+      <div class="card" role="region" aria-label="Pesan untuk Dwika">
+        <div class="chip">Semangat • <span style="margin-left:.4rem">Dari N2Oktena</span></div>
+        <div class="gift" title="Hadiah kecil untukmu">🎁 <span>Snack Favorit</span><small>&nbsp;— maaf ya</small></div><!-- Slides -->
+    <div class="slides" id="slides" aria-live="polite">
+      <!-- Slide 1 -->
+      <section class="slide active" data-idx="0">
+        <div>
+          <h1 class="h1">Hai Dwika, em....<br><span class="em">aku mau bilang...</span></h1>
+          <p class="desc"></p>
+          <button class="cta" id="next1" aria-label="Lanjut ke slide 2">(⁠.⁠⁠❛⁠⁠ᴗ⁠⁠❛⁠.⁠)</button>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide" data-idx="1">
+        <div>
+          <h2 class="h1">Maaaffffffffff dwikaaaaa!!!!</h2>
+          <p class="h1" style="font-size:clamp(1.05rem, 3.6vw, 1.45rem); font-weight:700; margin-top:14px">
+            Aku ngga tau kenapa kamu ngehindar terus, mungkin aku yang kurang peka atau gimana,
+            tapi kalau aku bikin salah <span class="em">maaf banget yah... serius</span> 😭🙏🏻🙏🏻
+          </p>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-idx="2">
+        <div>
+          <h2 class="h1">Semangat Belajar TKA-nya ya </h2>
+          <p class="h1" style="font-size:clamp(1.05rem, 3.6vw, 1.45rem); font-weight:700; margin-top:14px">
+            Maaf banget aku ngga bisa ikut belajar bareng hehehe 🙏🏻
+          </p>
+          <button class="cta" id="replay" aria-label="Putar ulang">(⁠≧⁠▽⁠≦⁠)</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="footer">
+      <div class="controls">
+        <button class="nav" id="prev" aria-label="Sebelumnya">◀</button>
+        <button class="nav" id="next" aria-label="Berikutnya">▶</button>
+      </div>
+      <div class="dots" aria-hidden="true">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>  <script>
+    /* === Minimal, Robust Slider === */
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dots   = Array.from(document.querySelectorAll('.dot'));
+    const prev   = document.getElementById('prev');
+    const next   = document.getElementById('next');
+    const next1  = document.getElementById('next1');
+    const replay = document.getElementById('replay');
+    let idx = 0, auto = null;
+
+    function setActive(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s,j)=> s.classList.toggle('active', j===idx));
+      dots.forEach((d,j)=> d.classList.toggle('active',  j===idx));
+      if(idx === slides.length-1) stopAuto();
+    }
+    const nextSlide = ()=> setActive(idx+1);
+    const prevSlide = ()=> setActive(idx-1);
+
+    function startAuto(){ if(!auto) auto = setInterval(nextSlide, 4500); }
+    function stopAuto(){ if(auto){ clearInterval(auto); auto = null; } }
+
+    next?.addEventListener('click', ()=>{ stopAuto(); nextSlide(); });
+    prev?.addEventListener('click', ()=>{ stopAuto(); prevSlide(); });
+    next1?.addEventListener('click', ()=>{ stopAuto(); nextSlide(); });
+    replay?.addEventListener('click', ()=>{ setActive(0); startAuto(); });
+
+    // Keyboard
+    addEventListener('keydown', e=>{
+      if(e.key==='ArrowRight'){ stopAuto(); nextSlide(); }
+      if(e.key==='ArrowLeft'){  stopAuto(); prevSlide(); }
+    });
+
+    // Touch swipe
+    let sx=0, dx=0;
+    addEventListener('touchstart', e=> sx = e.touches[0].clientX, {passive:true});
+    addEventListener('touchmove',  e=> dx = e.touches[0].clientX, {passive:true});
+    addEventListener('touchend',   ()=>{ const delta = dx - sx; if(Math.abs(delta)>40){ stopAuto(); (delta<0?nextSlide:prevSlide)(); } sx=dx=0; });
+
+    // Auto start after brief delay
+    setTimeout(startAuto, 900);
+  </script></body>
+</html>
